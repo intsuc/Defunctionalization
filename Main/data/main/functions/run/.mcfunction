@@ -1,10 +1,3 @@
-# Defunctionalization
-
-Examples of modular defunctionalization.
-
-## Examples
-
-```mcfunction
 #> main:run/
 
 # int     : [...]
@@ -34,27 +27,3 @@ Examples of modular defunctionalization.
 # int     : [...]
 # list    : [..., [1, 3, 5, 7]]
 # compound: [...]
-```
-
-## Pseudocode
-
-```ts
-const reverse_map = (list: number[], f: (i: number) => number): number[] => {
-    const result = [];
-    while (list.length > 0) {
-        const i = list.pop();
-        result.push(f(i));
-    }
-    return result;
-}
-
-const double = (i: number): number => i * 2.0;
-
-const add = (a: number) => (b: number): number => a + b;
-
-const run = (): number[] => {
-    const doubled = reverse_map([0, 1, 2, 3], double);
-    const increment = add(1);
-    return reverse_map(doubled, increment);
-}
-```
